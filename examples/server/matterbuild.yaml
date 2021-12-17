@@ -1,0 +1,82 @@
+---
+runner:
+  id: make
+  params: ["package"]
+#secrets:
+#  - name: TEST_SECRET
+env:     
+  - var: PLUGIN_STORE_URL
+    value: https://plugins-store.test.mattermost.com/release
+#replacements:
+#  - paths: [mattermost-server/app/server.go]
+#    tag: "$SENTRY_DSN"
+#    value: "sentry-dsn-value"
+#  - paths: [mattermost-server/services/telemetry/telemetry.go]
+#    tag: "$RUDDER_KEY_LIVE"
+#    value: "rudder-key-live"
+#  - paths: [mattermost-server/services/telemetry/telemetry.go]
+#    tag: "$RUDDER_DATAPLANE_URL"
+#    value: "rudder-dataplane-url"
+#    valueFrom:
+#      secret: TEST_SECRET
+artifacts:
+  destination: s3://mattermost-development-test/build-test-server/
+  files:
+    - "dist/mattermost-team-linux-amd64.tar.gz"
+    - "dist/mattermost-team-linux-arm64.tar.gz"
+    - "dist/mattermost-team-osx-amd64.tar.gz"
+    - "dist/mattermost-team-osx-arm64.tar.gz"
+    - "dist/mattermost-team-windows-amd64.zip"
+#  images: ["index.docker.io/mattermost/mm-te-test:test"]
+#transfers:
+#  - source: ["mattermost-webapp.tar.gz"]
+#    destination: s3://bucket1/dir/subdir/
+#  - source: ["mmctl", "mmctl.sha512"]
+#    destination: s3://bucket2/projectname/dir/
+materials:
+  #- uri: "s3://mattermost-development-test/build-test/"
+  #  digest:
+  #    sha1: e97447134cd650ee9f9da5d705a06d3c548d3d6c
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-antivirus-v0.1.2-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-autolink-v1.2.2-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-aws-SNS-v1.2.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-channel-export-v1.0.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-custom-attributes-v1.3.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-github-v2.0.1-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-gitlab-v1.3.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-playbooks-v1.22.1-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jenkins-v1.1.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jira-v2.4.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-nps-v1.1.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-welcomebot-v1.2.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-zoom-v1.5.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/focalboard-v0.10.0-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-antivirus-v0.1.2-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-autolink-v1.2.2-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-aws-SNS-v1.2.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-channel-export-v1.0.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-custom-attributes-v1.3.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-github-v2.0.1-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-gitlab-v1.3.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-playbooks-v1.22.1-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jenkins-v1.1.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jira-v2.4.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-nps-v1.1.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-welcomebot-v1.2.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-zoom-v1.5.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/focalboard-v0.10.0-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-antivirus-v0.1.2-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-autolink-v1.2.2-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-aws-SNS-v1.2.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-channel-export-v1.0.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-custom-attributes-v1.3.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-github-v2.0.1-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-gitlab-v1.3.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-playbooks-v1.22.1-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jenkins-v1.1.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jira-v2.4.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-nps-v1.1.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-welcomebot-v1.2.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-zoom-v1.5.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/focalboard-v0.10.0-windows-amd64.tar.gz
+  
