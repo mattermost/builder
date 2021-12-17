@@ -3,8 +3,8 @@ SHELL:=/usr/bin/env bash
 build:
 	mkdir tmp || :
 	rm -f tmp/builder_linux_amd64 tmp/builder_darwin_amd64 
-	go build -o tmp/mmbuilder_linux_amd64 cmd/mmbuild/main.go
-	env GOOS=darwin GOARCH=amd64 go build -o tmp/mmbuilder_darwin_amd64 cmd/mmbuild/main.go
+	env CGO_ENABLED=0 go build -o tmp/mmbuilder_linux_amd64 cmd/mmbuild/main.go
+	env CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o tmp/mmbuilder_darwin_amd64 cmd/mmbuild/main.go
 
 publish:
 	if [ -z "${TAG}" ]; then echo "Tag is not set"; exit 1; fi
