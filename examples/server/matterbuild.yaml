@@ -1,7 +1,7 @@
 ---
 runner:
   id: make
-  params: ["package"]
+  params: ["build-cmd", "package"]
 #secrets:
 #  - name: TEST_SECRET
 env:     
