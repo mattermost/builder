@@ -1,0 +1,28 @@
+---
+runner:
+  id: make
+  params: ["package"]
+#secrets:
+#  - name: TEST_SECRET
+#env:     
+#  - var: COMMIT_SHA
+#    value: b739074e0260def700eb13b2aa6091cae9366327
+#  - var: COMMIT_WITHOUT_SHA
+#replacements:
+#  - paths: [code.go]
+#    tag: placeholder
+#    valueFrom:
+#      secret: TEST_SECRET
+artifacts:
+  destination: s3://mattermost-development-test/build-test/
+  files: ["mattermost-webapp.tar.gz"]
+#  images: ["index.docker.io/mattermost/mm-te-test:test"]
+#transfers:
+#  - source: ["mattermost-webapp.tar.gz"]
+#    destination: s3://bucket1/dir/subdir/
+#  - source: ["mmctl", "mmctl.sha512"]
+#    destination: s3://bucket2/projectname/dir/
+#materials:
+#  - source: "git+https://github.com/foo/bar.git"
+#    digest:
+#      sha1: e97447134cd650ee9f9da5d705a06d3c548d3d6c
