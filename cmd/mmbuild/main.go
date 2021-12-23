@@ -13,7 +13,7 @@ var rootCmd = &cobra.Command{}
 
 var buildCmd = &cobra.Command{
 	Use: "build",
-	//SilenceUsage:  true,
+	// SilenceUsage:  true,
 	SilenceErrors: true,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return runBuild(bOpts)
@@ -21,8 +21,7 @@ var buildCmd = &cobra.Command{
 }
 
 var replayCmd = &cobra.Command{
-	Use: "replay",
-	// SilenceUsage:  true,
+	Use:           "replay",
 	SilenceErrors: true,
 	Args:          cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
@@ -31,6 +30,7 @@ var replayCmd = &cobra.Command{
 }
 
 type buildOpts = struct {
+	forceBuild bool
 	configFile string
 	workDir    string
 }
@@ -39,17 +39,24 @@ type replayOpts = struct {
 	workDir string
 }
 
-var bOpts = &buildOpts{}
-var rOpts = &replayOpts{}
+var (
+	bOpts = &buildOpts{}
+	rOpts = &replayOpts{}
+)
 
 func init() {
+	// Options for mmbuild build
 	buildCmd.PersistentFlags().StringVar(
 		&bOpts.configFile, "conf", "", "configuration file for the build",
 	)
 	buildCmd.PersistentFlags().StringVarP(
 		&bOpts.workDir, "workdir", "w", ".", "working directory where the build will run",
 	)
+	replayCmd.PersistentFlags().BoolVarP(
+		&bOpts.forceBuild, "force", "f", false, "execute the builder even if artifacts are found",
+	)
 
+	// Options for mmbuild replay
 	replayCmd.PersistentFlags().StringVarP(
 		&rOpts.workDir, "workdir", "w", ".", "working directory where the replay will run",
 	)
@@ -70,6 +77,7 @@ func runBuild(opts *buildOpts) (err error) {
 	}
 
 	b.Options().Workdir = opts.workDir
+	b.Options().ForceBuild = opts.forceBuild
 
 	run := b.Run()
 	return errors.Wrap(run.Execute(), "executing build run")
