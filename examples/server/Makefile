@@ -45,6 +45,7 @@ else
 	BUILD_ENTERPRISE_READY = false
 	BUILD_TYPE_NAME = team
 endif
+BUILD_WEBAPP_DIR ?= $(MMBUILD_MATERIALS_DIR)
 BUILD_WEBAPP_DIR ?= ../mattermost-webapp
 BUILD_CLIENT = false
 BUILD_HASH_CLIENT = independant

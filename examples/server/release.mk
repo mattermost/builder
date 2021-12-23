@@ -119,7 +119,7 @@ package-prep:
 
 	@# Package webapp
 	mkdir -p $(DIST_PATH)/client
-	cp -RL $(BUILD_WEBAPP_DIR)/dist/* $(DIST_PATH)/client
+	cp -RL $(BUILD_WEBAPP_DIR)/mattermost-webapp.tar.gz $(DIST_PATH)/client
 
 	@# Help files
 ifeq ($(BUILD_ENTERPRISE_READY),true)
