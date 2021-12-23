@@ -7,7 +7,7 @@ runner:
 env:     
   - var: PLUGIN_STORE_URL
     value: https://plugins-store.test.mattermost.com/release
-  - var: WEBAPP_SOURCE
+  - var: MMBUILD_STAGING_PATH
 #replacements:
 #  - paths: [mattermost-server/app/server.go]
 #    tag: "$SENTRY_DSN"
@@ -38,7 +38,7 @@ materials:
   #- uri: "s3://mattermost-development-test/build-test/"
   #  digest:
   #    sha1: e97447134cd650ee9f9da5d705a06d3c548d3d6c
-  - uri: s3://mattermost-development-test/build-test/${WEBAPP_SOURCE}/mattermost-webapp.tar.gz
+  - uri: s3://mattermost-development-test/build-test/${MMBUILD_STAGING_PATH}/mattermost-webapp.tar.gz
   - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-antivirus-v0.1.2-linux-amd64.tar.gz
   - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-autolink-v1.2.2-linux-amd64.tar.gz
   - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-aws-SNS-v1.2.0-linux-amd64.tar.gz
