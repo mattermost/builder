@@ -3,7 +3,7 @@ module github.com/mattermost/builder
 go 1.17
 
 require (
-	github.com/mattermost/cicd-sdk v0.0.0-20211222173637-6c1cad3efe2d
+	github.com/mattermost/cicd-sdk v0.0.0-20211223033541-883654db2b57
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.3.0
@@ -20,7 +20,7 @@ require (
 	github.com/go-git/go-billy/v5 v5.3.1 // indirect
 	github.com/go-git/go-git/v5 v5.4.2 // indirect
 	github.com/imdario/mergo v0.3.12 // indirect
-	github.com/in-toto/in-toto-golang v0.4.0-prerelease // indirect
+	github.com/in-toto/in-toto-golang v0.3.4-0.20211211042327-af1f9fb822bf // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
