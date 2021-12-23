@@ -330,8 +330,8 @@ github.com/magefile/mage v1.11.0/go.mod h1:z5UZb/iS3GoOSn0JgWuiw7dxlurVYTu+/jHXq
 github.com/magiconair/properties v1.8.5/go.mod h1:y3VJvCyxH9uVvJTWEGAELF3aiYNyPKd5NZ3oSwXrF60=
 github.com/matryer/is v1.2.0 h1:92UTHpy8CDwaJ08GqLDzhhuixiBUUD1p3AU6PHddz4A=
 github.com/matryer/is v1.2.0/go.mod h1:2fLPjFQM9rhQ15aVEtbuwhJinnOqrmgXPNdZsdwlWXA=
-github.com/mattermost/cicd-sdk v0.0.0-20211223033541-883654db2b57 h1:0TNnvfZswNkzG1jNsuqOBh1mvwe1PqPJGWXPAj9bTZg=
-github.com/mattermost/cicd-sdk v0.0.0-20211223033541-883654db2b57/go.mod h1:ATz3AC9JNpDJ7G8pzKPuPwTsJM3XSl6U+MjFMaVc4As=
+github.com/mattermost/cicd-sdk v0.0.0-20211223231557-c9a662396e1e h1:GpET1SYmh2lRjFxcl14FnvB7H3BJB3AS6ZuZLEpKB0Q=
+github.com/mattermost/cicd-sdk v0.0.0-20211223231557-c9a662396e1e/go.mod h1:ATz3AC9JNpDJ7G8pzKPuPwTsJM3XSl6U+MjFMaVc4As=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=
 github.com/mattn/go-colorable v0.1.4/go.mod h1:U0ppj6V5qS13XJ6of8GYAs25YV2eR4EVcfRqFIhoBtE=
 github.com/mattn/go-colorable v0.1.6/go.mod h1:u6P/XSegPjTcexA+o6vUJrdnUu04hMope9wVRipJSqc=
