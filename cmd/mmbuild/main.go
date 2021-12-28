@@ -31,6 +31,7 @@ var replayCmd = &cobra.Command{
 
 type buildOpts = struct {
 	forceBuild bool
+	SBOM       bool
 	configFile string
 	workDir    string
 }
@@ -55,6 +56,9 @@ func init() {
 	replayCmd.PersistentFlags().BoolVarP(
 		&bOpts.forceBuild, "force", "f", false, "execute the builder even if artifacts are found",
 	)
+	replayCmd.PersistentFlags().BoolVar(
+		&bOpts.SBOM, "sbom", false, "write an sbom to the workind directory after building",
+	)
 
 	// Options for mmbuild replay
 	replayCmd.PersistentFlags().StringVarP(
@@ -76,6 +80,7 @@ func runBuild(opts *buildOpts) (err error) {
 		return errors.Wrap(err, "creating new build")
 	}
 
+	b.Options().SBOM = opts.SBOM
 	b.Options().Workdir = opts.workDir
 	b.Options().ForceBuild = opts.forceBuild
 
