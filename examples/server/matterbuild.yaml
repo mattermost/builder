@@ -65,6 +65,8 @@ materials:
   #- uri: "s3://mattermost-development-test/build-test/"
   #  digest:
   #    sha1: e97447134cd650ee9f9da5d705a06d3c548d3d6c
+  ## MMBUILD_STAGING_PATH here will come from the previous run of the webapp build
+  ## For testing, try:  export MMBUILD_STAGING_PATH=133e9fe20423cc76a3ee9da69b48fe1a4bb4d3d8f1180f48b1c6dc6e164d632c
   - uri: s3://mattermost-development-test/build-test/${MMBUILD_STAGING_PATH}/mattermost-webapp.tar.gz
   - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_ANTIVIRUS}-linux-amd64.tar.gz
   - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_AUTLOINK}-linux-amd64.tar.gz
