@@ -53,16 +53,19 @@ func init() {
 	buildCmd.PersistentFlags().StringVarP(
 		&bOpts.workDir, "workdir", "w", ".", "working directory where the build will run",
 	)
-	replayCmd.PersistentFlags().BoolVarP(
+	buildCmd.PersistentFlags().BoolVarP(
 		&bOpts.forceBuild, "force", "f", false, "execute the builder even if artifacts are found",
 	)
-	replayCmd.PersistentFlags().BoolVar(
+	buildCmd.PersistentFlags().BoolVar(
 		&bOpts.SBOM, "sbom", false, "write an sbom to the workind directory after building",
 	)
 
 	// Options for mmbuild replay
 	replayCmd.PersistentFlags().StringVarP(
 		&rOpts.workDir, "workdir", "w", ".", "working directory where the replay will run",
+	)
+	replayCmd.PersistentFlags().BoolVarP(
+		&bOpts.forceBuild, "force", "f", false, "execute the builder even if artifacts are found",
 	)
 
 	rootCmd.AddCommand(buildCmd)
