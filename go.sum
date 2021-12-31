@@ -598,8 +598,8 @@ github.com/mailru/easyjson v0.7.0/go.mod h1:KAzv3t3aY1NaHWoQz1+4F1ccyAH66Jk7yos7
 github.com/marstr/guid v1.1.0/go.mod h1:74gB1z2wpxxInTG6yaqA7KrtM0NZ+RbrcqDvYHefzho=
 github.com/matryer/is v1.2.0 h1:92UTHpy8CDwaJ08GqLDzhhuixiBUUD1p3AU6PHddz4A=
 github.com/matryer/is v1.2.0/go.mod h1:2fLPjFQM9rhQ15aVEtbuwhJinnOqrmgXPNdZsdwlWXA=
-github.com/mattermost/cicd-sdk v0.0.0-20211229090438-461a7ac97bbf h1:PtWc24KRCfY4rrkXrGrMxrN0JhW5QbV1LA6RhpnMeFw=
-github.com/mattermost/cicd-sdk v0.0.0-20211229090438-461a7ac97bbf/go.mod h1:82cO65dhjS5LpglePcOoKXOW6Mhn4dCTnPW8q0FhHfk=
+github.com/mattermost/cicd-sdk v0.0.0-20211231145739-f7c6615b5fba h1:Ac4DYyTD4xlk1gZblVPmy6fHkpxuz5mcsheI1Vf6aRg=
+github.com/mattermost/cicd-sdk v0.0.0-20211231145739-f7c6615b5fba/go.mod h1:82cO65dhjS5LpglePcOoKXOW6Mhn4dCTnPW8q0FhHfk=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=
 github.com/mattn/go-colorable v0.1.4/go.mod h1:U0ppj6V5qS13XJ6of8GYAs25YV2eR4EVcfRqFIhoBtE=
 github.com/mattn/go-colorable v0.1.6/go.mod h1:u6P/XSegPjTcexA+o6vUJrdnUu04hMope9wVRipJSqc=
