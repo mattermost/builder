@@ -3,7 +3,7 @@ module github.com/mattermost/builder
 go 1.17
 
 require (
-	github.com/mattermost/cicd-sdk v0.0.0-20211229090438-461a7ac97bbf
+	github.com/mattermost/cicd-sdk v0.0.0-20211231145739-f7c6615b5fba
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.3.0

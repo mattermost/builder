@@ -7,7 +7,34 @@ runner:
 env:     
   - var: PLUGIN_STORE_URL
     value: https://plugins-store.test.mattermost.com/release
-  - var: MMBUILD_STAGING_PATH
+  - var: MM_PLUGIN_ANTIVIRUS
+    value: mattermost-plugin-antivirus-v0.1.2
+  - var: MM_PLUGIN_AUTLOINK
+    value: mattermost-plugin-autolink-v1.2.2
+  - var: MM_PLUGIN_AWS_SNS
+    value: mattermost-plugin-aws-SNS-v1.2.0
+  - var: MM_PLUGIN_CHANNEL_EXPORT
+    value: mattermost-plugin-channel-export-v1.0.0
+  - var: MM_PLUGIN_CUSTOM_ATTRS
+    value: mattermost-plugin-custom-attributes-v1.3.0
+  - var: MM_PLUGIN_GITHUB
+    value: mattermost-plugin-github-v2.0.1
+  - var: MM_PLUGIN_GITLAB
+    value: mattermost-plugin-gitlab-v1.3.0
+  - var: MM_PLUGIN_PLAYBOOKS
+    value: mattermost-plugin-playbooks-v1.22.1
+  - var: MM_PLUGIN_JENKINS
+    value: mattermost-plugin-jenkins-v1.1.0
+  - var: MM_PLUGIN_JIRA
+    value: mattermost-plugin-jira-v2.4.0
+  - var: MM_PLUGIN_NPS
+    value: mattermost-plugin-nps-v1.1.0
+  - var: MM_PLUGIN_WELCOMEBOT
+    value: mattermost-plugin-welcomebot-v1.2.0
+  - var: MM_PLUGIN_ZOOM
+    value: mattermost-plugin-zoom-v1.5.0
+  - var: MM_PLUGIN_FOCALBOARD
+    value: focalboard-v0.11.0
 #replacements:
 #  - paths: [mattermost-server/app/server.go]
 #    tag: "$SENTRY_DSN"
@@ -38,47 +65,49 @@ materials:
   #- uri: "s3://mattermost-development-test/build-test/"
   #  digest:
   #    sha1: e97447134cd650ee9f9da5d705a06d3c548d3d6c
+  ## MMBUILD_STAGING_PATH here will come from the previous run of the webapp build
+  ## For testing, try:  export MMBUILD_STAGING_PATH=133e9fe20423cc76a3ee9da69b48fe1a4bb4d3d8f1180f48b1c6dc6e164d632c
   - uri: s3://mattermost-development-test/build-test/${MMBUILD_STAGING_PATH}/mattermost-webapp.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-antivirus-v0.1.2-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-autolink-v1.2.2-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-aws-SNS-v1.2.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-channel-export-v1.0.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-custom-attributes-v1.3.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-github-v2.0.1-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-gitlab-v1.3.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-playbooks-v1.22.1-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jenkins-v1.1.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jira-v2.4.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-nps-v1.1.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-welcomebot-v1.2.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-zoom-v1.5.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/focalboard-v0.10.0-linux-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-antivirus-v0.1.2-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-autolink-v1.2.2-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-aws-SNS-v1.2.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-channel-export-v1.0.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-custom-attributes-v1.3.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-github-v2.0.1-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-gitlab-v1.3.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-playbooks-v1.22.1-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jenkins-v1.1.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jira-v2.4.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-nps-v1.1.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-welcomebot-v1.2.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-zoom-v1.5.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/focalboard-v0.10.0-osx-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-antivirus-v0.1.2-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-autolink-v1.2.2-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-aws-SNS-v1.2.0-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-channel-export-v1.0.0-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-custom-attributes-v1.3.0-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-github-v2.0.1-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-gitlab-v1.3.0-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-playbooks-v1.22.1-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jenkins-v1.1.0-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-jira-v2.4.0-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-nps-v1.1.0-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-welcomebot-v1.2.0-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/mattermost-plugin-zoom-v1.5.0-windows-amd64.tar.gz
-  - uri: ${PLUGIN_STORE_URL}/focalboard-v0.10.0-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_ANTIVIRUS}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_AUTLOINK}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_AWS_SNS}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_CHANNEL_EXPORT}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_CUSTOM_ATTRS}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_GITHUB}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_GITLAB}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_PLAYBOOKS}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_JENKINS}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_JIRA}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_NPS}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_WELCOMEBOT}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_ZOOM}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_FOCALBOARD}-linux-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_ANTIVIRUS}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_AUTLOINK}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_AWS_SNS}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_CHANNEL_EXPORT}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_CUSTOM_ATTRS}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_GITHUB}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_GITLAB}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_PLAYBOOKS}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_JENKINS}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_JIRA}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_NPS}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_WELCOMEBOT}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_ZOOM}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_FOCALBOARD}-osx-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_ANTIVIRUS}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_AUTLOINK}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_AWS_SNS}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_CHANNEL_EXPORT}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_CUSTOM_ATTRS}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_GITHUB}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_GITLAB}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_PLAYBOOKS}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_JENKINS}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_JIRA}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_NPS}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_WELCOMEBOT}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_ZOOM}-windows-amd64.tar.gz
+  - uri: ${PLUGIN_STORE_URL}/${MM_PLUGIN_FOCALBOARD}-windows-amd64.tar.gz
   
